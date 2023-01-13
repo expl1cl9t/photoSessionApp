@@ -37,17 +37,18 @@
             this.photo_type_text = new System.Windows.Forms.ComboBox();
             this.choicePhoto = new System.Windows.Forms.Button();
             this.file_name_text = new System.Windows.Forms.Label();
-            this.photoService_text = new System.Windows.Forms.ComboBox();
+            this.shops_text = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dateLabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.selectedPicture = new System.Windows.Forms.PictureBox();
             this.email_text = new System.Windows.Forms.TextBox();
             this.datePicker = new System.Windows.Forms.MonthCalendar();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.description_text = new System.Windows.Forms.TextBox();
             this.time_text = new System.Windows.Forms.Label();
             this.numberOfPhotos = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.selectedPicture)).BeginInit();
+            this.time_picker = new System.Windows.Forms.DateTimePicker();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // surname_text
@@ -84,6 +85,7 @@
             // 
             // print_format_text
             // 
+            this.print_format_text.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.print_format_text.FormattingEnabled = true;
             this.print_format_text.Location = new System.Drawing.Point(11, 117);
             this.print_format_text.Name = "print_format_text";
@@ -92,6 +94,7 @@
             // 
             // paper_type_text
             // 
+            this.paper_type_text.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.paper_type_text.FormattingEnabled = true;
             this.paper_type_text.Location = new System.Drawing.Point(11, 156);
             this.paper_type_text.Name = "paper_type_text";
@@ -100,6 +103,7 @@
             // 
             // photo_type_text
             // 
+            this.photo_type_text.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.photo_type_text.FormattingEnabled = true;
             this.photo_type_text.Location = new System.Drawing.Point(12, 198);
             this.photo_type_text.Name = "photo_type_text";
@@ -125,13 +129,14 @@
             this.file_name_text.TabIndex = 8;
             this.file_name_text.Text = "Имя выбранного файла";
             // 
-            // photoService_text
+            // shops_text
             // 
-            this.photoService_text.FormattingEnabled = true;
-            this.photoService_text.Location = new System.Drawing.Point(12, 276);
-            this.photoService_text.Name = "photoService_text";
-            this.photoService_text.Size = new System.Drawing.Size(121, 23);
-            this.photoService_text.TabIndex = 9;
+            this.shops_text.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.shops_text.FormattingEnabled = true;
+            this.shops_text.Location = new System.Drawing.Point(12, 276);
+            this.shops_text.Name = "shops_text";
+            this.shops_text.Size = new System.Drawing.Size(163, 23);
+            this.shops_text.TabIndex = 9;
             // 
             // label1
             // 
@@ -161,15 +166,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // selectedPicture
-            // 
-            this.selectedPicture.Location = new System.Drawing.Point(470, 2);
-            this.selectedPicture.Name = "selectedPicture";
-            this.selectedPicture.Size = new System.Drawing.Size(331, 239);
-            this.selectedPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.selectedPicture.TabIndex = 14;
-            this.selectedPicture.TabStop = false;
-            // 
             // email_text
             // 
             this.email_text.Location = new System.Drawing.Point(150, 78);
@@ -186,14 +182,14 @@
             this.datePicker.TabIndex = 16;
             this.datePicker.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.datePicker_DateSelected);
             // 
-            // textBox1
+            // description_text
             // 
-            this.textBox1.Location = new System.Drawing.Point(150, 117);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(265, 104);
-            this.textBox1.TabIndex = 17;
-            this.textBox1.Text = "Описание заказа";
+            this.description_text.Location = new System.Drawing.Point(150, 117);
+            this.description_text.Multiline = true;
+            this.description_text.Name = "description_text";
+            this.description_text.Size = new System.Drawing.Size(265, 104);
+            this.description_text.TabIndex = 17;
+            this.description_text.Text = "Описание заказа";
             // 
             // time_text
             // 
@@ -213,21 +209,52 @@
             this.numberOfPhotos.Text = "Количество фотографий";
             this.numberOfPhotos.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
+            // time_picker
+            // 
+            this.time_picker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.time_picker.Location = new System.Drawing.Point(215, 335);
+            this.time_picker.Name = "time_picker";
+            this.time_picker.Size = new System.Drawing.Size(200, 23);
+            this.time_picker.TabIndex = 20;
+            this.time_picker.Leave += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(685, 27);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(121, 54);
+            this.button2.TabIndex = 21;
+            this.button2.Text = "Открыть форму записи на фотосессию";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(685, 87);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(121, 53);
+            this.button3.TabIndex = 22;
+            this.button3.Text = "Открыть окно администратора";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(840, 560);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.time_picker);
             this.Controls.Add(this.numberOfPhotos);
             this.Controls.Add(this.time_text);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.description_text);
             this.Controls.Add(this.datePicker);
             this.Controls.Add(this.email_text);
-            this.Controls.Add(this.selectedPicture);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.photoService_text);
+            this.Controls.Add(this.shops_text);
             this.Controls.Add(this.file_name_text);
             this.Controls.Add(this.choicePhoto);
             this.Controls.Add(this.photo_type_text);
@@ -240,7 +267,6 @@
             this.Name = "Form1";
             this.Text = "Запись на печать";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.selectedPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,15 +283,17 @@
         private ComboBox photo_type_text;
         private Button choicePhoto;
         private Label file_name_text;
-        private ComboBox photoService_text;
+        private ComboBox shops_text;
         private Label label1;
         private Label dateLabel;
         private Button button1;
-        private PictureBox selectedPicture;
         private TextBox email_text;
         private MonthCalendar datePicker;
-        private TextBox textBox1;
+        private TextBox description_text;
         private Label time_text;
         private TextBox numberOfPhotos;
+        private DateTimePicker time_picker;
+        private Button button2;
+        private Button button3;
     }
 }

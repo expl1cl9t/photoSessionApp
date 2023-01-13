@@ -20,7 +20,7 @@ namespace photoSessionApp.database
             _user_name = user_name;
             _password=password;
         }
-        public DatabaseInfo(string string_connection)
+        public DatabaseInfo(string string_connection = "") //внутрь кавычек нужно ввести вашу строку запроса
         {
             _string_connection= string_connection;
         }
